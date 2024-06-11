@@ -1,0 +1,97 @@
+/* styles.css */
+body {
+font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    position:sticky;
+    top: 0;
+    margin-top: 20px;
+}
+
+.form-box h2 {
+    margin-bottom: 20px;
+}
+
+.form-box input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: -11px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-box button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-box button:hover {
+    background-color: #218838;
+}
+
+.tasks {
+    width: 100%;
+    max-width: 600px;
+    overflow-y: auto;
+    max-height: calc(100vh - 150px);
+    padding: 10px;
+    scrollbar-width: none;
+   -ms-overflow-style: none;
+   align-items: center;
+     
+}
+.tasks-container {
+    flex-direction: column;
+    align-items: center;
+}
+
+.tasks p b {
+    color: #333;
+}
+
+.tasks p span {
+    color: #888;
+}
+
+p {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    margin-left: 20px;
+}
+
+.tasks p button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.tasks p button:hover {
+    background-color: #c82333;
+}

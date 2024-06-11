@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda</title>
+  <link rel="stylesheet" href="/css/stylesheet.css">
+</head>
+<body>
+  <div id="app">
+    <div class="form-box">
+      <h2>Novo Evento</h2>
+      <label for="newNotes">Título:</label>
+      <input id="newNotes"/>&nbsp; <br>
+      <label for="newDates">Escolha uma data e hora:</label>
+      <input type="datetime-local" id="newDates">
+      <button @click="AddNewNotes()">Criar lembrete</button>
+    </div>
+    
+    <div class="tasks">
+      <div class="tasks-container">
+        <p v-for="note in notes">
+          <b>{{ note.descricao }}</b>&nbsp;
+          <br />
+          <span>{{ note.dataFormatada }}</span>&nbsp;
+          <button @click="DeleteNotes(note.id)">apagar lembrete</button>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js" integrity="sha512-JSCFHhKDilTRRXe9ak/FJ28dcpOJxzQaCd3Xg8MyF6XFjODhy/YMCM8HW0TFDckNHWUewW+kfvhin43hKtJxAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="module">
+    import { createApp, ref } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+
+    const API_URL = "http://localhost:5067/";
+
+    function formatDate(dateString) {
+      const options = { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' };
+      return new Date(dateString).toLocaleString('pt-BR', options);
+    }
+
+    createApp({
+      data() {
+        return {
+          title: "Agenda",
+          notes: [],
+        }
+      },
+      methods: {
+        async refresData() {
+          axios.get(API_URL + "api/Agenda/GetNotes").then((Response) => {
+            this.notes = Response.data.map(note => ({
+              ...note,
+              dataFormatada: formatDate(note.data)
+            }));
+          });
+        },
+        async AddNewNotes() {
+          var newNotes = document.getElementById("newNotes").value;
+          var newDates = document.getElementById("newDates").value;
+          const formData = new FormData();
+          formData.append("newDates", newDates);
+          formData.append("newNotes", newNotes);
+
+          axios.post(API_URL + "api/Agenda/AddNotes", formData).then((response) => {
+            this.refresData();
+            alert(response.data);
+          });
+        },
+        async DeleteNotes(id) {
+          axios.delete(API_URL + "api/Agenda/DeleteNotes?id=" + id).then((response) => {
+            this.refresData();
+            alert(response.data);
+          });
+        }
+      },
+      mounted: function () {
+        this.refresData();
+      },
+    }).mount("#app");
+  </script>
+</body>
+</html>
