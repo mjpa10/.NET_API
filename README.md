@@ -14,7 +14,7 @@ Este projeto consiste em um aplicativo de calendário de tarefas que permite aos
 ## Instalação
 
 1. Clone este repositório para o seu ambiente local.
-- [https://github.com/seu-usuario/nome-do-repositorio.git](https://github.com/mjpa10/.NET_API.git)
+- (https://github.com/mjpa10/.NET_API.git)
 
 2. Navegue até o diretório do projeto.
 
