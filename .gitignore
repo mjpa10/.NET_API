@@ -1,3 +1,4 @@
 # Ignorar arquivos de configuração do .NET
 api/WebApplication1/WebApplication1/appsettings.json
 api/WebApplication1/WebApplication1/appsettings.Development.json
+api/WebApplication1/.vs/
