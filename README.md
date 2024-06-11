@@ -14,16 +14,16 @@ Este projeto consiste em um aplicativo de calendário de tarefas que permite aos
 ## Instalação
 
 1. Clone este repositório para o seu ambiente local.
-[https://github.com/seu-usuario/nome-do-repositorio.git](https://github.com/mjpa10/.NET_API.git)
+- [https://github.com/seu-usuario/nome-do-repositorio.git](https://github.com/mjpa10/.NET_API.git)
 
 2. Navegue até o diretório do projeto.
 
 3. Instale as dependências do backend.
--cd api
--dotnet restore
+- cd api
+- dotnet restore
 
 5. Configure as credenciais do banco de dados Azure no arquivo `appsettings.json`.
 
 6. Inicie o servidor backend.
--npm run serve
+- npm run serve
 
